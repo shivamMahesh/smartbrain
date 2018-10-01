@@ -41,11 +41,11 @@ app.get('/vs',(req,res)=>
 }
 ]
 })
+);
 app.post('/signin',(req,res)=>
 {
-	signin.handleSignin(req,res,db,bcrypt);
-}));
-
+  signin.handleSignin(req,res,db,bcrypt);
+})
 app.post('/register',(req,res)=>
 {
 	register.handleRegister(req,res,db,bcrypt);
