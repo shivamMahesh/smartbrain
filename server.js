@@ -7,8 +7,7 @@ app.use(cors());
 app.use(bodyParser.json());
 const register=require('./Controllers/register');
 const signin=require('./Controllers/signin');
-const profile=require('./Controllers/profile');
-const image=require('./Controllers/image');
+
 var db = require('knex')({
   client: 'pg',
   connection: {
@@ -18,11 +17,13 @@ var db = require('knex')({
 });
 app.get('/vs',(req,res)=>
 {
- res.json({
-"fileid":"1HVmnGTLWTNjJ1eLfysXLXK2LrlqKE_Lb",
-"dtime":"2017-10-02 19:05:15.646517"
-})
-);
+ var obj= {
+fileid:'1HVmnGTLWTNjJ1eLfysXLXK2LrlqKE_Lb',
+dtime:'2017-10-02 19:05:15.646517'
+}
+ res.json(obj);
+});
+
 app.post('/signin',(req,res)=>
 {
   signin.handleSignin(req,res,db,bcrypt);
@@ -32,21 +33,6 @@ app.post('/register',(req,res)=>
 	register.handleRegister(req,res,db,bcrypt);
 })
 
-
-app.get('/profile/:id',(req,res)=>
-{
-	profile.handleProfile(req,res,db);
-})
-
-app.put('/image',(req,res)=>
-{
-	image.handleImage(req,res,db);
-})
-
-app.post('/imageurl',(req,res)=>
-{
-  image.handleApiCall(req,res);
-})
 
 
 app.listen(process.env.PORT || 3000,()=>
