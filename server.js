@@ -18,28 +18,9 @@ var db = require('knex')({
 });
 app.get('/vs',(req,res)=>
 {
- res.json([
-{
+ res.json({
 "fileid":"1HVmnGTLWTNjJ1eLfysXLXK2LrlqKE_Lb",
 "dtime":"2017-10-02 19:05:15.646517"
-},
-{
-"fileid":"1FW3xkHySebuctQ_02NtaAmj16DpXSPzC",
-"dtime":"2017-10-02 19:05:15.646517"
-},
-{
-"fileid":"11zYDqrr6PcEZgsx_BtjOuOiXMWps-CXD",
-"dtime":"2017-10-01 23:59:15.646517"
-},
-{
-"fileid":"1PWNAvsYzkdnMvr7GnwBmNe1basXhGQuI",
-"dtime":"2017-10-02 19:05:15.646517"
-},
-{
-"fileid":"1a_x1YkbIP_yFJyfun7bTZkAZQIQVTJ3A",
-"dtime":"2017-10-01 23:58:15.646517"
-}
-]
 })
 );
 app.post('/signin',(req,res)=>
